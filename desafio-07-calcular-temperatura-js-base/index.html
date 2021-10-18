@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Conversão Temperatura</title>
+</head>
+
+<body>
+
+    <h1>Conversor de temperatura</h1>
+
+    <form id="formtemperatura">
+        <input type="number" required name="temperatura" id="temperatura">
+        <input type="checkbox" id="celcius" name="temperatura">Celcius</checkbox>
+        <input type="checkbox" id="fahrenheit" name="temperatura">Fahrenheit</checkbox>
+        <button type="submit" id="btnConverter">Converter</button>
+    </form>
+
+    <script>
+        //pegando elementos html e atribuindo as variáveis.
+        var temperatura = document.getElementById('temperatura');
+        var celciusCheckBox = document.getElementById('celcius');
+        var fahrenheitCheckBox = document.getElementById('fahrenheit');
+        var btnConverter = document.getElementById('btnConverter');
+
+        //quando clicar no botão faça isso.
+        btnConverter.addEventListener('click', function Converter(pagina)
+        {
+            pagina.preventDefault();
+
+            //se a checkbox estiver cheia converta para celcius.
+            if (celciusCheckBox.checked === true) {
+
+               let conversaoCelcius = (temperatura.value * 1.80) + 32; 
+
+               //fórmula de conversão.
+                console.log(conversaoCelcius);
+            }
+            
+            //se a checkbox de fahrenheit converta para fahrenheint
+            if(fahrenheitCheckBox.checked === true)
+            {
+                //formula de conversão.
+               let conversaoFahrenheit = (temperatura.value - 32) / 1.8;
+
+                console.log(conversaoFahrenheit.toFixed(1));
+            }
+        });
+
+
+    </script>
+
+</body>
+
+</html>

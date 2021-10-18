@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercícios</title>
+
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script>
+        let personagens = [{
+            nome: "Capitão Cometa",
+            dataAparicao: 1951,
+            editora: "DC"
+        }, {
+            nome: "Lanterna Verde",
+            dataAparicao: 1940,
+            editora: "DC"
+        }, {
+            nome: "Ciborgue",
+            dataAparicao: 1980,
+            editora: "DC"
+        }, {
+            nome: "Homem Aranha",
+            dataAparicao: 1962,
+            editora: "Marvel"
+        }, {
+            nome: "Homem de Ferro",
+            dataAparicao: 1963,
+            editora: "Marvel"
+        }, {
+            nome: "Capitão América",
+            dataAparicao: 1940,
+            editora: "Marvel"
+        }];
+
+        // 1.   Liste somente os personagens cuja editora seja Marvel;
+        const ListarPersonagensMarvel = personagens.filter((item, i) => item.editora == "Marvel");
+
+
+        //explicando o filter:
+        // filter criará um novo array que analisa o itens que atende a funcao.
+        // (item, i) item = cada item existente no array, i = o número que será feita a contagem.
+        // dentro do filter há uma verificação na qual se a verificação retornar um valor true ele adiciona um array.
+        // muito semelhante a um foreach em C#.
+
+        // 2.	Liste somente os personagem cuja data de Aparição seja superior a 1950;
+        const PersonagensApos1950 = personagens.filter((personagens, contador) => personagens.dataAparicao > 1950);
+
+        // 3.	Some a idade de todos os personagens;
+        const SomarIdadePersonagens = personagens.reduce(function (somaIdade, item) {
+
+            //idade personagem recebe função que pega o ano atual menos a data de aparição dos personagens.
+            let IdadePersonagem = new Date().getFullYear() - item.dataAparicao;
+            
+            //Some somaIdade + IdadePersonagem e atribua a somaIdade.
+            somaIdade += IdadePersonagem;
+
+            //retorne somaIdade com as idades somadas.
+            return somaIdade;
+        },0);
+
+        //Explicando o Reduce:
+        //O reduce pega uma propriedade específica, soma e e guarda em uma variável.
+        //somaIdade será a idade que guardará todas as idade somadas.
+        //item corresponde aos personagens no Array personagens
+        // 0 após a função especifica que a variável que receberá os itens é igual a 0.
+
+        // 4.	Traga somente os nomes dos personagens;
+        const NomePersonagens = personagens.map(p => p.nome);
+
+        //Map: temos que dar um call back, ele vai verificar todos os atributos
+        
+        // 5.	Adicione mais um personagem chamado Capitã Marvel, data de Aparição 1977 e editora Marvel;
+        
+        //push adiciona um novo item no array
+        personagens.push(
+        {
+            nome: "Capitã Marvel",
+            dataAparicao: 1977,
+            editora: "Marvel"
+        }
+        );
+
+        // 6. Mostre a quantidade de personagens da Marvel que possuem na lista
+        console.log(personagens.length);
+
+        // 7. Mostre o nome e a idade dos personagens
+        const PersonagemIdadeNome = personagens.map(function(item){
+            //pegando a idade dos personagens e subtraindo pela data de aparição dos personagens.
+            let idadePersonagem = new Date().getFullYear() - item.dataAparicao;
+
+            //retornando o nome junto com a idade.
+            return `${item.nome}, ${idadePersonagem} anos`;
+
+        });
+
+    </script>
+
+</body>
+
+</html>

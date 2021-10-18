@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ex 1 - News</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="news">
+            <h1 class="news__title" id="formTitle">Se inscreva para receber mais informações</h1>
+            <form action="" class="news__form">
+                <div class="news__form-group">
+                    <label for="newsInputEmail" class="news__label">
+                        Email
+                    </label>
+                    <input type="email" class="news__input" id="newsInputEmail" placeholder="email@exemplo.com.br">
+                </div>
+                <div class="news__form-group">
+                    <button class="button news__button" id="news__button" disabled>Enviar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        //pegando os elementos html pelo id
+        var inputEmail = document.getElementById('newsInputEmail');
+        var newsButton = document.getElementById('news__button');
+
+        //mudar cor do newsButton para #ECDDF3.
+        function MudarCorBotao() {
+            newsButton.style.backgroundColor = '#ECDDF3';
+        }
+
+        //a cada movimento do teclado execute essa LigarBotao
+        inputEmail.addEventListener('keyup', function LigarBotao() {
+
+            //se o valor do input for maior do que 5, conter '.' e '@' ative o botão e execute a função MudarCorBotao
+            if (inputEmail.value.length > 5 && inputEmail.value.includes('.') && inputEmail.value.includes('@')) {
+                newsButton.disabled = false;
+                
+                console.log("Sucesso !")
+                //ative quando alguma tecla no mouve for feita. 
+                newsButton.addEventListener('keyup', MudarCorBotao);
+            }else{
+                //caso a verificação seja false deixe o botão desligado.
+                newsButton.disabled = true;
+            }
+        });
+    </script>
+
+</body>
+
+</html>
