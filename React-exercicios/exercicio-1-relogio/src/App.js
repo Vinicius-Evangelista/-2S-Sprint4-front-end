@@ -93,7 +93,7 @@ class Clock extends React.Component {
         <h1>Relógio</h1>
          {/* quando clicar o botão irá acionar a função Pause() */}
 
-        <button className = "BtnPause" onClick = { () => this.Pause() }>Parar Relogio</button>
+        <button className = "BtnPause" onClick = { () => this.Pause() }>Para Relogio</button>
 
          {/* quando clicar o botão irá acionar a função Resume() */}
         
